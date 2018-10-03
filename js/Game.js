@@ -11,7 +11,7 @@ function Game(){
 Game.prototype.run = function(){
 	
 	this.snake.moveStep();
-	
+
 	if(this.isTouchingFood()){
 		
 		alert("Ñ");

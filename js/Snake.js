@@ -73,6 +73,6 @@ Snake.prototype.grow = function(){
 	
 	last = this.segments[this.segments.length - 1];
 	
-	this.segments.push({x: last.x);
+//	this.segments.push({x: last.x);
 	
 }
