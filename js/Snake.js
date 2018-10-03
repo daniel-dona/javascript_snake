@@ -16,8 +16,17 @@ Snake.prototype.moveStep = function(){
 		for(j = 0; j < this.turn_queue.length; j++){ // recorre los movimientos para comprobar si hay alguno que tiene que aplicarse a ese segmento
 			
 			
-			if(this.segments[i].x == this.turn_queue[j].x && this.segments[i].y == this.turn_queue[j].y){
+			if(this.turn_queue[j] != null && this.segments[i].x == this.turn_queue[j].x && this.segments[i].y == this.turn_queue[j].y){
+				
 				this.segments[i].d = this.turn_queue[j].d;
+				
+				if(i == (this.segments.length - 1)){
+					
+					this.turn_queue[j] = null;
+				
+					
+				}
+				
 				break;
 			}
 		
@@ -36,6 +45,10 @@ Snake.prototype.moveStep = function(){
 			this.segments[i].x--;
 		}
 		
+		
+			
+			
+		
 	}
 	
 }
@@ -48,6 +61,7 @@ Snake.prototype.getHeadPosition = function(){
 }
 
 Snake.prototype.addTurn = function(turn_element){
+	
 	 
 	 this.turn_queue.push(turn_element);
 	
