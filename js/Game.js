@@ -3,11 +3,20 @@ function Game(){
 	this.speed = 10;
 	this.score = 0;
 	
-	// Initial state
-	
-//	this.board = new Board(this.size);
 	this.snake = new Snake();
 	this.food = new Food();
+	
+}
+
+Game.prototype.run = function(){
+	
+	this.snake.moveStep();
+	
+	if(this.isTouchingFood()){
+		
+		alert("Ñ");
+		
+	}
 	
 }
 
@@ -25,16 +34,12 @@ Game.prototype.move = function(direction){
 
 Game.prototype.isTouchingHimself = function(){
 	
-	
-	
-	
-	return true/false;
+	//TO DO
 	
 }
 
 Game.prototype.isTouchingFood = function(){
 	
-	
-	return true/false;
+	return this.food.isFood(this.snake.getHeadPosition());
 	
 }

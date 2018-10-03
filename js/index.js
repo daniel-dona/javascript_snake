@@ -7,7 +7,9 @@ document.addEventListener("keydown", capture_keypress);
 
 G = new Game();
 
-draw_board();
+setInterval(function(){ draw_board(); }, 100);
+
+setInterval(function(){ G.run(); }, 1000);
 
 }
 
@@ -95,13 +97,17 @@ function draw_board(){
 				
 				document.getElementById(xx + "x" + yy).style.backgroundColor = "#000";
 				
-			} 
+			}else if(G.food.isFood({x: yy, y: xx})){
+				
+				document.getElementById(xx + "x" + yy).style.backgroundColor = "#0F0";
+				
+			}else{
+				
+				document.getElementById(xx + "x" + yy).style.backgroundColor = "#EEE";
+				
+			}
 			
-		/*	if(G.food.isFood({x: i, y: j})){
-				
-				console.log("Food"+i+","+j);
-				
-			} */
+			
 			
 		}
 		

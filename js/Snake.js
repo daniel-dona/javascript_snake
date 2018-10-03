@@ -24,13 +24,13 @@ Snake.prototype.moveStep = function(){
 		
 		}
 		if (this.segments[i].d == 0 ){		
-			this.segments[i].y++;
+			this.segments[i].y--;
 		}
 		if (this.segments[i].d == 1 ){		
 			this.segments[i].x++;
 		}
 		if (this.segments[i].d == 2 ){		
-			this.segments[i].y--;
+			this.segments[i].y++;
 		}
 		if (this.segments[i].d == 3 ){		
 			this.segments[i].x--;
@@ -66,5 +66,13 @@ Snake.prototype.isSnake = function(position){
 	}
 	
 	return false;
+	
+}
+
+Snake.prototype.grow = function(){
+	
+	last = this.segments[this.segments.length - 1];
+	
+	this.segments.push({x: last.x);
 	
 }
