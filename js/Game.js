@@ -3,8 +3,8 @@ function Game(){
 	this.speed = 10;
 	this.score = 0;
 	
-	this.snake = new Snake();
-	this.food = new Food();
+	this.snake = new Snake(this);
+	this.food = new Food(this);
 	
 }
 
