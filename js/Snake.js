@@ -62,8 +62,9 @@ Snake.prototype.getHeadPosition = function(){
 
 Snake.prototype.addTurn = function(turn_element){
 	
+	for(j = 0; j < this.turn_queue.length; j++){
 	 
-	 this.turn_queue.push(turn_element);
+	this.turn_queue.push(turn_element);
 	
 	
 }

@@ -11,7 +11,6 @@ Food.prototype.generateFood = function(){
 	
 	this.food.push({x:x,y:y,d:null});
 	
-	
 }
 
 Food.prototype.isFood = function(position){
