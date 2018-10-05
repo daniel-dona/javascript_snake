@@ -6,9 +6,6 @@ function Snake(){
 	this.segments.push({x:6,y:4,d:1});
 	this.segments.push({x:5,y:4,d:1});
 	this.segments.push({x:4,y:4,d:1});
-	this.segments.push({x:3,y:4,d:1});
-	this.segments.push({x:2,y:4,d:1});
-	this.segments.push({x:1,y:4,d:1});
 
 }
 
@@ -66,8 +63,10 @@ Snake.prototype.getHeadPosition = function(){
 Snake.prototype.addTurn = function(turn_element){
 	
 	for(j = 0; j < this.turn_queue.length; j++){
+		
+		if(this.turn_element.x == this.turn_queue[j].x && this.turn_element.y == this.turn_queue[j].y){
 	 
-	this.turn_queue.push(turn_element);
+		this.turn_queue.push(turn_element);
 	
 	
 }
