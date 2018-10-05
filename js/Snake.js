@@ -6,6 +6,9 @@ function Snake(){
 	this.segments.push({x:6,y:4,d:1});
 	this.segments.push({x:5,y:4,d:1});
 	this.segments.push({x:4,y:4,d:1});
+	this.segments.push({x:3,y:4,d:1});
+	this.segments.push({x:2,y:4,d:1});
+	this.segments.push({x:1,y:4,d:1});
 
 }
 
