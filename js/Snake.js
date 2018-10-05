@@ -65,11 +65,14 @@ Snake.prototype.addTurn = function(turn_element){
 	for(j = 0; j < this.turn_queue.length; j++){
 		
 		if(this.turn_element.x == this.turn_queue[j].x && this.turn_element.y == this.turn_queue[j].y){
+			
+			return;
 	 
-		this.turn_queue.push(turn_element);
+		}
 		
 	}
 	
+	this.turn_queue.push(turn_element);
 	
 }
 
