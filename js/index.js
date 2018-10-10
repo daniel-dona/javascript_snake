@@ -7,7 +7,7 @@ document.addEventListener("keydown", capture_keypress);
 
 G = new Game();
 
-setInterval(function(){ draw_board(); }, 100);
+setInterval(function(){ draw_board(); }, 10);
 
 setInterval(function(){ G.run(); },  100);
 
