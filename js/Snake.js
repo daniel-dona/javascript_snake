@@ -47,7 +47,12 @@ Snake.prototype.moveStep = function(){
 		if (this.segments[i].d == 3 ){		
 			this.segments[i].x--;
 		}
-		
+		/*  
+ * if (this.snake.segments[i].x > 24){
+ *      this.snake.segments[i].x = 0;
+ * }
+  
+ * */
 		
 			
 			
@@ -82,9 +87,13 @@ Snake.prototype.addTurn = function(turn_element){
 		}
 		
 	}
-	
-	this.turn_queue.push(turn_element);
-	
+	if(Math.abs(this.getHeadPosition().d - turn_element.d) != 2){
+			this.turn_queue.push(turn_element);
+
+}else{
+	console.log("giro erroneo");
+	}
+		
 }
 
 Snake.prototype.isSnake = function(position){
@@ -93,7 +102,7 @@ Snake.prototype.isSnake = function(position){
 		
 		if(this.segments[i].x == position.x && this.segments[i].y == position.y){
 			
-			return true;
+			return true;	
 					
 		}
 	}
@@ -109,3 +118,15 @@ Snake.prototype.grow = function(){
 //	this.segments.push({x: last.x);
 	
 }
+Snake.prototype.isTouchingHimself = function(){
+	for(i = 1 ; i < this.segments.length ; i++){
+		
+		if(this.getHeadPosition().x == this.segments[i].x
+		    && this.getHeadPosition().y == this.segments[i].y){
+						return true;
+}
+		
+}	
+	return false;
+}
+

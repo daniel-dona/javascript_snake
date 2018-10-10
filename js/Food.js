@@ -1,7 +1,7 @@
 function Food(game){
 	this.game = game
 	this.food = [];
-	1
+	
 }
 
 Food.prototype.generateFood = function(){

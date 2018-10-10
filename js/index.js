@@ -9,7 +9,7 @@ G = new Game();
 
 setInterval(function(){ draw_board(); }, 100);
 
-setInterval(function(){ G.run(); }, 100);
+setInterval(function(){ G.run(); },  100);
 
 }
 
@@ -24,27 +24,31 @@ function capture_keypress(event){
 	const RIGHT_KEY = 39;
 	const UP_KEY = 38;
 	const DOWN_KEY = 40;
+	const UP_KEY2 = 87;
+	const DOWN_KEY2 = 83;
+	const LEFT_KEY2 = 65;
+	const RIGHT_KEY2 = 68;
 
 
-	if (event.keyCode === UP_KEY){
+	if (event.keyCode === UP_KEY ||event.keyCode === UP_KEY2){
   
 		G.move(0);
 
 	}
 	
-	if (event.keyCode === RIGHT_KEY){
+	if (event.keyCode === RIGHT_KEY || event.keyCode === RIGHT_KEY2){
   
 		G.move(1);
 
 	}
 
-	if (event.keyCode === DOWN_KEY){
+	if (event.keyCode === DOWN_KEY || event.keyCode === DOWN_KEY2){
   
 		G.move(2);
 
 	}
 	
-	if (event.keyCode === LEFT_KEY){
+	if (event.keyCode === LEFT_KEY || event.keyCode === LEFT_KEY2){
   
 		G.move(3);
 
@@ -95,15 +99,15 @@ function draw_board(){
 		
 			if(G.snake.isSnake({x: yy, y: xx})){
 				
-				document.getElementById(xx + "x" + yy).style.backgroundColor = "#000";
+				document.getElementById(xx + "x" + yy).style.background = "#000";
 				
 			}else if(G.food.isFood({x: yy, y: xx})){
 				
-				document.getElementById(xx + "x" + yy).style.backgroundColor = "#0F0";
+				document.getElementById(xx + "x" + yy).style.background = "#222";//"url ('imagenes/manzana.jpg')"
 				
 			}else{
 				
-				document.getElementById(xx + "x" + yy).style.backgroundColor = "#EEE";
+				document.getElementById(xx + "x" + yy).style.background = "#EEE";
 				
 			}
 			
