@@ -1,5 +1,5 @@
-function Snake(){
-	
+function Snake(game){
+	this.game = game;
 	this.turn_queue = [];
 	this.segments = [];
 	
@@ -47,12 +47,29 @@ Snake.prototype.moveStep = function(){
 		if (this.segments[i].d == 3 ){		
 			this.segments[i].x--;
 		}
-		/*  
- * if (this.snake.segments[i].x > 24){
- *      this.snake.segments[i].x = 0;
- * }
+		 
+        if (this.segments[i].x > (this.game.size -1) &&
+           (this.segments[i].y > (this.game.size/2 - this.game.size/10) &&
+            this.segments[i].y < (this.game.size/2 + this.game.size/10))){
+			this.segments[i].x = 0;
+		}
+		if (this.segments[i].x < 0 &&
+           (this.segments[i].y > (this.game.size/2 - this.game.size/10) &&
+            this.segments[i].y < (this.game.size/2 + this.game.size/10))){
+			this.segments[i].x = (this.game.size - 1);
+		}
+		if (this.segments[i].y > (this.game.size -1) &&
+           (this.segments[i].x > (this.game.size/2 - this.game.size/10) &&
+            this.segments[i].x < (this.game.size/2 + this.game.size/10))){
+			this.segments[i].y = 0;
+		}
+		if (this.segments[i].y < 0 &&
+           (this.segments[i].x > (this.game.size/2 - this.game.size/10) &&
+            this.segments[i].x < (this.game.size/2 + this.game.size/10))){
+			this.segments[i].y = (this.game.size - 1);
+		}
   
- * */
+ 
 		
 			
 			
@@ -114,8 +131,22 @@ Snake.prototype.isSnake = function(position){
 Snake.prototype.grow = function(){
 	
 	last = this.segments[this.segments.length - 1];
-	
-//	this.segments.push({x: last.x);
+	nd = (last.d + 2) % 4;
+	nx = last.x;
+	ny = last.y;
+	switch(nd){
+		case 0 : ny--;
+			break;
+		case 1 : nx++;
+			break;
+		case 2 : ny++;
+			break;
+		case 3 : nx--;
+			break;
+			
+		
+	} 
+	this.segments.push({x: nx , y : ny , d : last.d});
 	
 }
 Snake.prototype.isTouchingHimself = function(){

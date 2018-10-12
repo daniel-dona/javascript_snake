@@ -7,8 +7,8 @@ function Food(game){
 Food.prototype.generateFood = function(){
 	while (true){
 		
-	x = Math.floor((Math.random() * 25) + 1);
-	y = Math.floor((Math.random() * 25) + 1);	
+	x = Math.floor((Math.random() * (this.game.size - 1)) + 1);
+	y = Math.floor((Math.random() * (this.game.size - 1)) + 1);	
     e = {x:x,y:y,d:null};
     if (!this.game.snake.isSnake(e)){
 		break;
@@ -24,11 +24,11 @@ Food.prototype.generateFood = function(){
 Food.prototype.isFood = function(position){
 	
 	for (i=0;i<this.food.length;i++	){
-		
+		if(this.food[i] != null){
 		if(this.food[i].x == position.x && this.food[i].y == position.y){
 			
 			return true;
-					
+		}		
 		}
 	}
 	
@@ -36,3 +36,17 @@ Food.prototype.isFood = function(position){
 	
 }
 
+Food.prototype.deleteFood = function(position){
+	
+	for (i=0;i<this.food.length;i++	){
+		
+		if(this.food[i] != null){
+		if(this.food[i].x == position.x && this.food[i].y == position.y){
+			
+			delete this.food[i];
+		}
+		}
+	}
+	
+	
+}

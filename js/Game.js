@@ -5,11 +5,12 @@ function Game(){
 	
 	this.snake = new Snake(this);
 	this.food = new Food(this);
-	
+	this.food.generateFood();
+	this.started = false;
 }
 
 Game.prototype.run = function(){
-	//this.food.generateFood();
+	
 	this.snake.moveStep();
 
 	if(this.isTouchingHimself() || this.isTouchingBoard()){
@@ -19,6 +20,12 @@ Game.prototype.run = function(){
 		
 		
 	}
+	if(this.isTouchingFood()){
+		
+	this.food.deleteFood(this.snake.getHeadPosition());
+	this.food.generateFood();
+	this.snake.grow();
+}
 	
 }
 

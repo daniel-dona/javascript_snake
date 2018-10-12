@@ -7,10 +7,16 @@ document.addEventListener("keydown", capture_keypress);
 
 G = new Game();
 
+draw_board();
+
+}
+
+function start(){
+	
 setInterval(function(){ draw_board(); }, 10);
 
-setInterval(function(){ G.run(); },  100);
-
+setInterval(function(){ G.run(); },  75);	
+	
 }
 
 function reset(){
@@ -29,6 +35,13 @@ function capture_keypress(event){
 	const LEFT_KEY2 = 65;
 	const RIGHT_KEY2 = 68;
 
+	if(G.started == false){
+
+		G.started = true;
+		
+		start();
+		
+	}
 
 	if (event.keyCode === UP_KEY ||event.keyCode === UP_KEY2){
   
@@ -103,7 +116,7 @@ function draw_board(){
 				
 			}else if(G.food.isFood({x: yy, y: xx})){
 				
-				document.getElementById(xx + "x" + yy).style.background = "#222";//"url ('imagenes/manzana.jpg')"
+				document.getElementById(xx + "x" + yy).style.background = "#F00";//"url ('imagenes/manzana.jpg')"
 				
 			}else{
 				
